@@ -32,20 +32,28 @@
 #include <iostream>
 using namespace std;
 
-void bk(int n) {
-    if (n==0){
-        cout << 0;
+int main(){
+    int x, n;
+    int a[10];
+    int m = 0;
+
+    scanf("%d", &x);
+
+    for (n = 0; x; n++){
+        if (x % 10 % 2 == 0)
+            a[m] = 0;
+        else
+            a[m] = 1;
+        x = x / 10;
+        m++;
     }
-    if (n>10){
-        bk(n/10);
+    x = 0;
+    for (m--; m >= 0; m--){
+        //	printf ("%d",a[m]);
+        x = x * 10 + a[m];
     }
-    cout << (n % 10 & 1);
-}    
-    
-int main() {
-    int n;
-    cin >> n;
-    bk(n);
+    printf("%d", x);
+
     return 0;
 }
 // 64 位输出请用 printf("%lld")
